@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>Crear Conduce | Yake Power Systems</title>
+		<link rel="stylesheet" href="css/estilos.css" />
+	</head>
+
+	<body>
+
+		<header>
+			<h1>Yake Power Systems</h1>
+			<p>Sistema Web para la Gestión y Generación de Conduces</p>
+		</header>
+
+		<nav>
+			<ul>
+				<li>
+					<a href="index.html">Inicio</a>
+				</li>
+				<li>
+					<a href="proyecto.html">Sobre el proyecto</a>
+				</li>
+				<li>
+					<a href="conduce.html">Crear conduce</a>
+				</li>
+			</ul>
+		</nav>
+
+		<main>
+			
+				<section>
+				<h2>Crear conduce</h2>
+
+				<p>
+					Complete los datos correspondientes al cliente y al despacho.
+					En esta primera fase el formulario será únicamente visual y
+					todavía no procesará información.
+				</p>
+			</section>
+
+			<section>
+				<h2>Datos del conduce</h2>
+
+				<form>
+
+					<p>
+						<label for="numeroConduce">Número de conduce:</label>
+						<br />
+						<input type="text" id="numeroConduce" name="numeroConduce" />
+					</p>
+
+					<p>
+						<label for="fecha">Fecha:</label>
+						<br />
+						<input type="date" id="fecha" name="fecha" />
+					</p>
+
+					<p>
+						<label for="cliente">Cliente:</label>
+						<br />
+						<input type="text" id="cliente" name="cliente" />
+					</p>
+
+					<p>
+						<label for="rnc">RNC:</label>
+						<br />
+						<input type="text" id="rnc" name="rnc" />
+					</p>
+
+					<p>
+						<label for="direccion">Dirección:</label>
+						<br />
+						<input type="text" id="direccion" name="direccion" />
+					</p>
+
+					<p>
+						<label for="atencion">Atención:</label>
+						<br />
+						<input type="text" id="atencion" name="atencion" />
+					</p>
+
+					<p>
+						<label for="telefono">Teléfono:</label>
+						<br />
+						<input type="tel" id="telefono" name="telefono" />
+					</p>
+
+				</form>
+			</section>
+
+			<section>
+				<h2>Productos del conduce</h2>
+
+				<table border="1">
+					<thead>
+						<tr>
+							<th>Código / Modelo</th>
+							<th>Serial</th>
+							<th>Descripción</th>
+							<th>Cantidad</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td>
+								<input type="text" name="codigo" />
+							</td>
+
+							<td>
+								<input type="text" name="serial" />
+							</td>
+
+							<td>
+								<input type="text" name="descripcion" />
+							</td>
+
+							<td>
+								<input type="number" name="cantidad" min="1" />
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section>
+				<h2>Observaciones</h2>
+
+				<p>
+					<label for="observaciones">Observaciones del despacho:</label>
+					<br />
+					<textarea
+						id="observaciones"
+						name="observaciones"
+						rows="5"
+						cols="50">
+					</textarea>
+				</p>
+
+				<p>
+					<button type="button">Guardar conduce</button>
+				</p>
+			</section>
+			
+		</main>
+
+		<footer>
+			<p>
+				Proyecto académico - Desarrollo de Aplicaciones Web ISW-306
+			</p>
+
+			<p>
+				Yake Power Systems - Sistema Web para la Gestión y Generación de Conduces
+			</p>
+		</footer>
+
+	</body>
+
+</html>
