@@ -3,21 +3,27 @@
     margin: 0;
     background-color: #f4f4f4;
     color: #222222;
+    line-height: 1.5;
 }
 
 header {
     background-color: #ffffff;
     text-align: center;
-    padding: 25px 15px;
+    padding: 35px 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 header h1 {
     margin-bottom: 8px;
+    letter-spacing: 0.5px;
 }
 
 nav {
     background-color: #222222;
-    padding: 12px;
+    padding: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 nav ul {
@@ -29,37 +35,47 @@ nav ul {
 
 nav li {
     display: inline-block;
-    margin: 0 15px;
+    margin: 0 18px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    transition: opacity 0.2s ease;
+    padding: 6px 4px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease, opacity 0.2s ease;
 }
 
 nav a:hover {
-    text-decoration: underline;
-    opacity: 0.8;
+    border-bottom: 2px solid white;
+    opacity: 0.9;
 }
 
 main {
-    width: 85%;
+    width: 88%;
     max-width: 1100px;
-    margin: 25px auto;
+    margin: 35px auto;
 }
 
 section {
     background-color: white;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 6px;
+    padding: 30px;
+    margin-bottom: 28px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.2s ease;
+}
+
+section:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.09);
 }
 
 h2 {
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f4f4f4;
 }
 
 /* --- Campos de formulario --- */
@@ -67,24 +83,26 @@ label {
     display: block;
     margin-bottom: 6px;
     font-weight: bold;
+    font-size: 0.95rem;
 }
 
 .form-group {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 input,
 textarea,
 select {
     width: 100%;
-    padding: 10px 12px;
+    padding: 11px 14px;
     margin-top: 4px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
+    border: 1.5px solid #dddddd;
+    border-radius: 6px;
     font-family: inherit;
     font-size: 1rem;
+    background-color: #fafafa;
     box-sizing: border-box;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 input:focus,
@@ -92,60 +110,72 @@ textarea:focus,
 select:focus {
     outline: none;
     border-color: #222222;
+    background-color: white;
     box-shadow: 0 0 0 3px rgba(34, 34, 34, 0.1);
 }
 
 textarea {
     resize: vertical;
-    min-height: 100px;
+    min-height: 110px;
 }
 
 /* --- Tabla --- */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
+    margin-top: 12px;
+    overflow: hidden;
+    border-radius: 8px;
 }
 
 th,
 td {
-    border: 1px solid #cccccc;
-    padding: 10px;
+    border: 1px solid #eaeaea;
+    padding: 12px;
     text-align: left;
 }
 
 th {
-    background-color: #f4f4f4;
+    background-color: #222222;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) td {
+    background-color: #fafafa;
 }
 
 /* --- Botones --- */
 button {
-    padding: 10px 22px;
+    padding: 11px 26px;
     cursor: pointer;
     background-color: #222222;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 1rem;
     font-weight: bold;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    letter-spacing: 0.3px;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
 }
 
 button:hover {
-    background-color: #444444;
-    transform: translateY(-1px);
+    background-color: #3a3a3a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 button:active {
     transform: translateY(0);
+    box-shadow: none;
 }
 
 footer {
     background-color: #222222;
     color: white;
     text-align: center;
-    padding: 15px;
-    margin-top: 20px;
+    padding: 20px;
+    margin-top: 30px;
 }
 
 #acceso-formulario {
@@ -163,16 +193,16 @@ footer {
 @media (max-width: 768px) {
     main {
         width: 92%;
-        margin: 15px auto;
+        margin: 20px auto;
     }
 
     section {
-        padding: 18px;
+        padding: 20px;
     }
 
     nav li {
         display: block;
-        margin: 8px 0;
+        margin: 10px 0;
     }
 
     button {
@@ -180,17 +210,27 @@ footer {
     }
 
     th, td {
-        padding: 7px;
+        padding: 8px;
         font-size: 0.9rem;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
     }
 }
 
 @media (max-width: 480px) {
     header {
-        padding: 18px 10px;
+        padding: 22px 10px;
     }
 
     .logo-empresa {
         max-width: 180px;
+    }
+
+    section {
+        padding: 16px;
+        border-radius: 8px;
     }
 }
