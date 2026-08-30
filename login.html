@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar Sesión | Yake Power Systems</title>
+    <link rel="stylesheet" href="css/estilos.css" />
+    <style>
+        /* centrar el formulario y alertas */
+        .login-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn-submit:hover {
+            background-color: #555;
+        }
+        .error-message {
+            color: #d9534f;
+            background-color: #f2dede;
+            border: 1px solid #ebccd1;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: none; /* Oculto por defecto */
+        }
+        .success-message {
+            color: #3c763d;
+            background-color: #dff0d8;
+            border: 1px solid #d6e9c6;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Yake Power Systems</h1>
+        <p>Acceso al Sistema de Gestión de Conduces</p>
+    </header>
+
+    <main>
+        <div class="login-container">
+            <h2>Iniciar Sesión</h2>
+            
+            <!-- Contenedores para mensajes visibles -->
+            <div id="error-alert" class="error-message"></div>
+            <div id="success-alert" class="success-message"></div>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="identifier">Usuario o Correo Electrónico:</label>
+                    <input type="text" id="identifier" placeholder="ejemplo@yake.com o admin" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-submit">Ingresar al Sistema</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>Proyecto académico - Desarrollo de Aplicaciones Web ISW-306</p>
+    </footer>
+
+    <!-- Vinculación del archivo JS que crearemos a continuación -->
+    <script src="js/login.js"></script>
+</body>
+</html>
