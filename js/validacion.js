@@ -38,13 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         
         const rnccedula = document.getElementById('rnccedula').value.trim();
-        const regexRncCedula = /^[0-9]{9,11}$/;
-        if (rnccedula === '') {
-            mostrarError('error-Rnccedula', 'El RNC o Cédula es obligatorio.');
-            esValido = false;
-        } else if (!regexRncCedula.test(rnccedula)) {
-            mostrarError('error-Rnccedula', 'Debe contener 9 a 11 dígitos numéricos sin guiones.');
-            esValido = false;
+
+if (rnccedula === '') {
+    mostrarError('error-Rnccedula', 'El RNC o Cédula es obligatorio.');
+    esValido = false;
+} else if (!validarRncCedula(rnccedula)) {
+    mostrarError('error-Rnccedula', 'El RNC debe tener 9 dígitos o la cédula 11 dígitos.');
+    esValido = false;
         }
 
         
@@ -56,14 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         
         const telefono = document.getElementById('telefono').value.trim();
-        const numerosTelefono = telefono.replace(/\D/g, ''); 
-        if (telefono === '') {
-            mostrarError('error-Telefono', 'El teléfono es obligatorio.');
-            esValido = false;
-        } else if (numerosTelefono.length < 10) {
-            mostrarError('error-Telefono', 'Ingrese un teléfono válido de al menos 10 dígitos.');
-            esValido = false;
-        }
+
+if (telefono === '') {
+    mostrarError('error-Telefono', 'El teléfono es obligatorio.');
+    esValido = false;
+} else if (!validarTelefono(telefono)) {
+    mostrarError('error-Telefono', 'Ingrese un teléfono válido de al menos 10 dígitos.');
+    esValido = false;
+        }S
 
         
         const filasProductos = document.querySelectorAll('.filaProducto');
