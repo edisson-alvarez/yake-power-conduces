@@ -136,5 +136,64 @@ if (buscadorProductos && resultadoBusqueda) {
         }
     });
 }
+function actualizarCantidadTotal() {
+    const filas = document.querySelectorAll(".filaProducto");
+
+    const productos = Array.from(filas).map((fila) => {
+        const cantidad = fila.querySelector(".input-cantidad");
+
+        return {
+            cantidad: cantidad ? cantidad.value : 0
+        };
+    });
+
+    const total = calcularCantidadTotal(productos);
+    const elementoTotal = document.getElementById("totalProductos");
+
+    if (elementoTotal) {
+        elementoTotal.textContent = `Cantidad total de productos: ${total}`;
+    }
+}
+
+document.addEventListener("input", (e) => {
+    if (e.target.classList.contains("input-cantidad")) {
+        actualizarCantidadTotal();
+    }
+});
+
+const btnAgregarProducto = document.getElementById("btnAgregarProducto");
+const cuerpoProductos = document.getElementById("cuerpoProductos");
+
+if (btnAgregarProducto && cuerpoProductos) {
+    btnAgregarProducto.addEventListener("click", () => {
+        const primeraFila = cuerpoProductos.querySelector(".filaProducto");
+
+        if (!primeraFila) {
+            return;
+        }
+
+        const nuevaFila = primeraFila.cloneNode(true);
+
+        nuevaFila.querySelectorAll("input").forEach((input) => {
+            input.value = "";
+        });
+
+        cuerpoProductos.appendChild(nuevaFila);
+        actualizarCantidadTotal();
+    });
+
+    cuerpoProductos.addEventListener("click", (e) => {
+        if (e.target.classList.contains("btn-eliminar-fila")) {
+            const filas = cuerpoProductos.querySelectorAll(".filaProducto");
+
+            if (filas.length > 1) {
+                e.target.closest(".filaProducto").remove();
+                actualizarCantidadTotal();
+            }
+        }
+    });
+}
+
+actualizarCantidadTotal();
 
 });
