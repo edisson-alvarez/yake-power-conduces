@@ -115,7 +115,17 @@
 			<section id="seccionProductos">
 				<h2>Productos del conduce</h2>
 
-				<table border="1" id="tablaProductos">
+				<div class="buscador-productos">
+   				     <label for="buscadorProductos">Buscar producto:</label>
+    				     <input
+      				          type="text"
+        		        	  id="buscadorProductos"
+        			          placeholder="Buscar por código o descripción"
+    				      />
+   				      <p id="resultadoBusqueda"></p>
+				</div>
+
+					<table border="1" id="tablaProductos">
 					<thead>
 						<tr>
 							<th>Código / Modelo</th>

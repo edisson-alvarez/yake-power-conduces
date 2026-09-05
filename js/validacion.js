@@ -106,4 +106,35 @@ if (telefono === '') {
             elemento.textContent = mensaje;
         }
     }
+const productosDisponibles = [
+    { codigo: "UPS-001", descripcion: "UPS interactivo" },
+    { codigo: "BAT-002", descripcion: "Banco de baterías" },
+    { codigo: "INV-003", descripcion: "Inversor de energía" },
+    { codigo: "GEN-004", descripcion: "Generador eléctrico" }
+];
+
+const buscadorProductos = document.getElementById("buscadorProductos");
+const resultadoBusqueda = document.getElementById("resultadoBusqueda");
+
+if (buscadorProductos && resultadoBusqueda) {
+    buscadorProductos.addEventListener("input", () => {
+        const termino = buscadorProductos.value;
+
+        if (termino.trim() === "") {
+            resultadoBusqueda.textContent = "";
+            return;
+        }
+
+        const resultados = filtrarProductos(productosDisponibles, termino);
+
+        if (resultados.length === 0) {
+            resultadoBusqueda.textContent = "No se encontraron productos.";
+        } else {
+            resultadoBusqueda.textContent = resultados
+                .map(producto => `${producto.codigo} - ${producto.descripcion}`)
+                .join(" | ");
+        }
+    });
+}
+
 });
