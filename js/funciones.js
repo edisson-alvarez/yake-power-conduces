@@ -24,3 +24,55 @@ function filtrarProductos(productos, termino) {
         );
     });
 }
+
+function limpiarFormulario() {
+    document.querySelectorAll(
+        "#formConduce input, #seccionProductos input, #seccionObservaciones textarea"
+    ).forEach((campo) => {
+        campo.value = "";
+    });
+
+    document.querySelectorAll(".error-mensaje").forEach((mensaje) => {
+        mensaje.textContent = "";
+    });
+
+    const mensajeGlobal = document.getElementById("mensajeGlobal");
+    if (mensajeGlobal) {
+        mensajeGlobal.textContent = "";
+    }
+
+    const cuerpoProductos = document.getElementById("cuerpoProductos");
+
+    if (cuerpoProductos) {
+        const filas = cuerpoProductos.querySelectorAll(".filaProducto");
+
+        filas.forEach((fila, index) => {
+            if (index > 0) {
+                fila.remove();
+            }
+        });
+
+        const primeraFila = cuerpoProductos.querySelector(".filaProducto");
+
+        if (primeraFila) {
+            primeraFila.querySelectorAll("input").forEach((input) => {
+                input.value = "";
+            });
+        }
+    }
+
+    const buscador = document.getElementById("buscadorProductos");
+    if (buscador) {
+        buscador.value = "";
+    }
+
+    const resultado = document.getElementById("resultadoBusqueda");
+    if (resultado) {
+        resultado.textContent = "";
+    }
+
+    const total = document.getElementById("totalProductos");
+    if (total) {
+        total.textContent = "Cantidad total de productos: 0";
+    }
+}
