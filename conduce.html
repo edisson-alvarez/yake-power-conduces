@@ -1,210 +1,348 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
 
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crear Conduce | Yake Power Systems</title>
+    <link rel="stylesheet" href="css/estilos.css" />
+</head>
 
-		<title>Crear Conduce | Yake Power Systems</title>
-		<link rel="stylesheet" href="css/estilos.css" />
-	</head>
+<body>
 
-	<body>
+    <header>
+        <h1>Yake Power Systems</h1>
+        <p>Sistema Web para la Gestión y Generación de Conduces</p>
+    </header>
 
-		<header>
-			<h1>Yake Power Systems</h1>
-			<p>Sistema Web para la Gestión y Generación de Conduces</p>
-		</header>
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">Inicio</a>
+            </li>
+            <li>
+                <a href="proyecto.html">Sobre el proyecto</a>
+            </li>
+            <li>
+                <a href="conduce.html">Crear conduce</a>
+            </li>
+        </ul>
+    </nav>
 
-		<nav>
-			<ul>
-				<li>
-					<a href="index.html">Inicio</a>
-				</li>
-				<li>
-					<a href="proyecto.html">Sobre el proyecto</a>
-				</li>
-				<li>
-					<a href="conduce.html">Crear conduce</a>
-				</li>
-			</ul>
-		</nav>
+    <main>
 
-		<main>
-			
-				<section>
-				<h2>Creación y Gestión de Conduces</h2>
+        <section>
+            <h2>Creación y Gestión de Conduces</h2>
+            <p>
+                Complete los datos correspondientes al cliente y al despacho.
+                El formulario permite validar y gestionar la información del conduce.
+            </p>
+        </section>
 
-				<p>
-					Complete los datos correspondientes al cliente y al despacho.
-					En esta primera fase el formulario será únicamente visual y
-					todavía no procesará información.
-				</p>
-			</section>
+        <form id="formConduce" novalidate>
 
-			<section id="seccionDatosConduce">
-				<h2>Datos del conduce</h2>
+            <section id="seccionDatosConduce">
 
-				<form id="formConduce" NoValidate>
+                <h2>Datos del conduce</h2>
 
-					<p>
-						<label for="numeroConduce">Número de conduce:</label>
-						<br />
-						<input type="text" id="numeroConduce" name="numeroConduce"
-							class="campo-formulario" data-campo="numeroConduce"
-							placeholder="Ej. CON-001" />
-						<span class="error-mensaje" id="error-NumeroConduce"></span>
-					</p>
+                <p>
+                    <label for="numeroConduce">Número de conduce:</label>
+                    <br />
+                    <input
+                        type="text"
+                        id="numeroConduce"
+                        name="numeroConduce"
+                        class="campo-formulario"
+                        data-campo="numeroConduce"
+                        placeholder="Ej. CON-001"
+                    />
+                    <span
+                        class="error-mensaje"
+                        id="error-NumeroConduce">
+                    </span>
+                </p>
 
-					<p>
-						<label for="fecha">Fecha:</label>
-						<br />
-						<input type="date" id="fecha" name="fecha" 
-							class="campo-formulario" data-campo="fecha" />
-						<span class="error-mensaje" id="error-Fecha"></span>
-					</p>
+                <p>
+                    <label for="fecha">Fecha:</label>
+                    <br />
+                    <input
+                        type="date"
+                        id="fecha"
+                        name="fecha"
+                        class="campo-formulario"
+                        data-campo="fecha"
+                    />
+                    <span
+                        class="error-mensaje"
+                        id="error-Fecha">
+                    </span>
+                </p>
 
-					<p>
-						<label for="cliente">Cliente:</label>
-						<br />
-						<input type="text" id="cliente" name="cliente" 
-							class="campo-formulario" data-campo="cliente"
-							placeholder="Nombre del cliente o razón social" />
-						<span class="error-mensaje" id="error-Cliente"></span>
-					</p>
+                <p>
+                    <label for="cliente">Cliente:</label>
+                    <br />
+                    <input
+                        type="text"
+                        id="cliente"
+                        name="cliente"
+                        class="campo-formulario"
+                        data-campo="cliente"
+                        placeholder="Nombre del cliente o razón social"
+                    />
+                    <span
+                        class="error-mensaje"
+                        id="error-Cliente">
+                    </span>
+                </p>
 
-					<p>
-						<label for="rnccedula">RNC / Cédula:</label>
-						
-						<input type="text" id="rnccedula" name="rnccedula" 
-							class="campo-formulario" data-campo="rnccedula" 
-							placeholder="RNC o número de cédula" />
-						<span class="error-mensaje" id="error-Rnccedula"></span>
-					</p>
+                <p>
+                    <label for="rnccedula">RNC / Cédula:</label>
+                    <br />
+                    <input
+                        type="text"
+                        id="rnccedula"
+                        name="rnccedula"
+                        class="campo-formulario"
+                        data-campo="rnccedula"
+                        placeholder="RNC o número de cédula"
+                    />
+                    <span
+                        class="error-mensaje"
+                        id="error-Rnccedula">
+                    </span>
+                </p>
 
-					<p>
-						<label for="direccion">Dirección:</label>
-						<br />
-						<input type="text" id="direccion" name="direccion" 
-							class="campo-formulario" data-campo="direccion" 
-							placeholder="Dirección completa del cliente" />
-						<span class="error-mensaje" id="error-Direccion"></span>
-					</p>
+                <p>
+                    <label for="direccion">Dirección:</label>
+                    <br />
+                    <input
+                        type="text"
+                        id="direccion"
+                        name="direccion"
+                        class="campo-formulario"
+                        data-campo="direccion"
+                        placeholder="Dirección completa del cliente"
+                    />
+                    <span
+                        class="error-mensaje"
+                        id="error-Direccion">
+                    </span>
+                </p>
 
-					<p>
-						<label for="atencion">Atención:</label>
-						<br />
-						<input type="text" id="atencion" name="atencion" 
-							class="campo-formulario" data-campo="atencion" 
-							placeholder="Nombre de la persona a la que se dirige el conduce" />
-						<span class="error-mensaje" id="error-Atencion"></span>
-					</p>
+                <p>
+                    <label for="atencion">Atención:</label>
+                    <br />
+                    <input
+                        type="text"
+                        id="atencion"
+                        name="atencion"
+                        class="campo-formulario"
+                        data-campo="atencion"
+                        placeholder="Nombre de la persona a la que se dirige el conduce"
+                    />
+                    <span
+                        class="error-mensaje"
+                        id="error-Atencion">
+                    </span>
+                </p>
 
-					<p>
-						<label for="telefono">Teléfono:</label>
-						<br />
-						<input type="tel" id="telefono" name="telefono" 
-							class="campo-formulario" data-campo="telefono" 
-							placeholder="Número de teléfono del cliente" />
-						<span class="error-mensaje" id="error-Telefono"></span>
-					</p>
+                <p>
+                    <label for="telefono">Teléfono:</label>
+                    <br />
+                    <input
+                        type="tel"
+                        id="telefono"
+                        name="telefono"
+                        class="campo-formulario"
+                        data-campo="telefono"
+                        placeholder="Número de teléfono del cliente"
+                    />
+                    <span
+                        class="error-mensaje"
+                        id="error-Telefono">
+                    </span>
+                </p>
 
-				</form>
-			</section>
+            </section>
 
-			<section id="seccionProductos">
-				<h2>Productos del conduce</h2>
+            <section id="seccionProductos">
 
-				<div class="buscador-productos">
-   				     <label for="buscadorProductos">Buscar producto:</label>
-    				     <input
-      				          type="text"
-        		        	  id="buscadorProductos"
-        			          placeholder="Buscar por código o descripción"
-    				      />
-   				      <p id="resultadoBusqueda"></p>
-				</div>
+                <h2>Productos del conduce</h2>
 
-					<table border="1" id="tablaProductos">
-					<thead>
-						<tr>
-							<th>Código / Modelo</th>
-							<th>Serial</th>
-							<th>Descripción</th>
-							<th>Cantidad</th>
-						</tr>
-					</thead>
+                <div class="buscador-productos">
 
-					<tbody id="cuerpoProductos">
-						<tr class="filaProducto">
-							<td>
-								<input type="text" class="campo-formulario input-codigo" 
-									name="codigo" placeholder="Codigo o modelo del producto"/>
-							</td>
+                    <label for="buscadorProductos">
+                        Buscar producto:
+                    </label>
 
-							<td>
-								<input type="text" class="campo-formulario input-serial" 
-									name="serial" placeholder="Número de serie del producto"/>
-							</td>
+                    <input
+                        type="text"
+                        id="buscadorProductos"
+                        placeholder="Buscar por código o descripción"
+                    />
 
-							<td>
-								<input type="text" class="campo-formulario input-descripcion" 
-									name="descripcion" placeholder="Descripción del producto" />
-							</td>
+                    <p id="resultadoBusqueda"></p>
 
-							<td>
-								<input type="number" class="campo-formulario input-cantidad" 
-									name="cantidad" min="1" placeholder="Cantidad de producto"/>
-							</td>
-							<td>
-								<button type="button" class="btn-eliminar-fila">Eliminar</button>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			
+                </div>
 
-			<p id="totalProductos">Cantidad total de productos: 0</p>
-				<button type="button" id="btnAgregarProducto">Agregar producto</button>
-		
-			<span class="error-mensaje" id="error-Productos"></span>
+                <table id="tablaProductos">
 
-                            </section>			
-                                      <section id="seccionObservaciones">
-					<h2>Observaciones</h2>
+                    <thead>
+                        <tr>
+                            <th scope="col">Código / Modelo</th>
+                            <th scope="col">Serial</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
 
-					<p>
-						<label for="observaciones">Observaciones del despacho:</label>
-						<br />
-						<textarea id="observaciones" name="observaciones"
-						class="campo-formulario" data-campo="observaciones" 
-						rows="5" cols="50"></textarea>
-				</p>
+                    <tbody id="cuerpoProductos">
 
-				<div id="mensajeGlobal" class="mensaje" aria-live="polite"></div>
+                        <tr class="filaProducto">
 
-				<p>
-					<button type="button" id="btnGuardarConduce">Guardar conduce</button>
-				</p>
+                            <td>
+                                <input
+                                    type="text"
+                                    class="campo-formulario input-codigo"
+                                    name="codigo"
+                                    placeholder="Código o modelo del producto"
+                                />
+                            </td>
 
-				<p>
-					<button type="button" id="btnLimpiar" onclick="limpiarFormulario()">Limpiar formulario</button>
-				</p>
-			</section>
-			
-		</main>
+                            <td>
+                                <input
+                                    type="text"
+                                    class="campo-formulario input-serial"
+                                    name="serial"
+                                    placeholder="Número de serie del producto"
+                                />
+                            </td>
 
-		<footer>
-			<p>Proyecto académico - Desarrollo de Aplicaciones Web ISW-306</p>
-			<p>Yake Power Systems - Sistema Web para la Gestión y Generación de Conduces</p>
-			<p>Contactanos: 809-770-2200 | 809-544-4407 | 829-839-3333</p>
-			<p>Dirección: Edif. Berlanga, Av. Jacobo Majluta No. 9, Arroyo Hondo, Distrito Nacional.</p>
-			<p>&copy; 2026 Yake Power Systems. Todos los derechos reservados.</p>
-		</footer>
-		
-		<script src="js/funciones.js"></script>
-		<script src="js/validacion.js"></script>
+                            <td>
+                                <input
+                                    type="text"
+                                    class="campo-formulario input-descripcion"
+                                    name="descripcion"
+                                    placeholder="Descripción del producto"
+                                />
+                            </td>
 
-	</body>
+                            <td>
+                                <input
+                                    type="number"
+                                    class="campo-formulario input-cantidad"
+                                    name="cantidad"
+                                    min="1"
+                                    placeholder="Cantidad de producto"
+                                />
+                            </td>
+
+                            <td>
+                                <button
+                                    type="button"
+                                    class="btn-eliminar-fila">
+                                    Eliminar
+                                </button>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+                <p id="totalProductos">
+                    Cantidad total de productos: 0
+                </p>
+
+                <button
+                    type="button"
+                    id="btnAgregarProducto">
+                    Agregar producto
+                </button>
+
+                <span
+                    class="error-mensaje"
+                    id="error-Productos">
+                </span>
+
+            </section>
+
+            <section id="seccionObservaciones">
+
+                <h2>Observaciones</h2>
+
+                <p>
+                    <label for="observaciones">
+                        Observaciones del despacho:
+                    </label>
+                    <br />
+
+                    <textarea
+                        id="observaciones"
+                        name="observaciones"
+                        class="campo-formulario"
+                        data-campo="observaciones"
+                        rows="5"
+                        cols="50"></textarea>
+                </p>
+
+                <div
+                    id="mensajeGlobal"
+                    class="mensaje"
+                    aria-live="polite">
+                </div>
+
+                <p>
+                    <button
+                        type="button"
+                        id="btnGuardarConduce">
+                        Guardar conduce
+                    </button>
+                </p>
+
+                <p>
+                    <button
+                        type="button"
+                        id="btnLimpiar"
+                        onclick="limpiarFormulario()">
+                        Limpiar formulario
+                    </button>
+                </p>
+
+            </section>
+
+        </form>
+
+    </main>
+
+    <footer>
+        <p>
+            Proyecto académico - Desarrollo de Aplicaciones Web ISW-306
+        </p>
+
+        <p>
+            Yake Power Systems - Sistema Web para la Gestión y Generación de Conduces
+        </p>
+
+        <p>
+            Contáctanos: 809-770-2200 | 809-544-4407 | 829-839-3333
+        </p>
+
+        <p>
+            Dirección: Edif. Berlanga, Av. Jacobo Majluta No. 9,
+            Arroyo Hondo, Distrito Nacional.
+        </p>
+
+        <p>
+            &copy; 2026 Yake Power Systems. Todos los derechos reservados.
+        </p>
+    </footer>
+
+    <script src="js/funciones.js"></script>
+    <script src="js/validacion.js"></script>
+
+</body>
 
 </html>
