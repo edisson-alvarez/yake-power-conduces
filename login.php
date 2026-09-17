@@ -78,18 +78,6 @@
             border-radius: 6px;
             margin-bottom: 18px;
             font-weight: bold;
-            display: none;
-        }
-
-        .success-message {
-            color: #3c763d;
-            background-color: #dff0d8;
-            border: 1px solid #d6e9c6;
-            padding: 12px;
-            border-radius: 6px;
-            margin-bottom: 18px;
-            font-weight: bold;
-            display: none;
         }
 
         @media (max-width: 480px) {
@@ -111,17 +99,24 @@
         <div class="login-container">
             <h2>Iniciar Sesión</h2>
 
-            <div id="error-alert" class="error-message"></div>
-            <div id="success-alert" class="success-message"></div>
+            <!-- Bloque PHP que lee la URL y muestra el error si las credenciales fallan -->
+            <?php if (isset($_GET['error'])): ?>
+                <div id="error-alert" class="error-message">
+                    <?php echo htmlspecialchars($_GET['error']); ?>
+                </div>
+            <?php endif; ?>
 
-            <form id="login-form">
+            <!-- Formulario conectado a tu archivo procesar_login.php en la raíz -->
+            <form id="login-form" action="procesar_login.php" method="POST">
                 <div class="form-group">
                     <label for="identifier">Usuario o Correo Electrónico:</label>
-                    <input type="text" id="identifier" placeholder="ejemplo@yake.com o admin" required>
+                    <!-- El atributo 'name' es vital para que PHP reciba el dato -->
+                    <input type="text" id="identifier" name="identificador" placeholder="ejemplo@yake.com o admin" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Contraseña:</label>
-                    <input type="password" id="password" placeholder="••••••••" required>
+                    <!-- El atributo 'name' es vital para que PHP reciba el dato -->
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
                 </div>
                 <button type="submit" class="btn-submit">Ingresar al Sistema</button>
             </form>
@@ -132,6 +127,5 @@
         <p>Proyecto académico - Desarrollo de Aplicaciones Web ISW-306</p>
     </footer>
 
-    <script src="js/login.js"></script>
 </body>
 </html>
