@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -26,13 +26,16 @@
             <li>
                 <a href="conduce.html">Crear conduce</a>
             </li>
+            <li>
+                <a href="listado_conduces.html">Listado de conduces</a>
+            </li>
         </ul>
     </nav>
 
     <main>
 
         <section>
-            <h2>Creación y Gestión de Conduces</h2>
+            <h2 id="tituloFormulario">Creación y Gestión de Conduces</h2>
             <p>
                 Complete los datos correspondientes al cliente y al despacho.
                 El formulario permite validar y gestionar la información del conduce.
@@ -40,6 +43,10 @@
         </section>
 
         <form id="formConduce" novalidate>
+
+            <!-- Campos ocultos usados solo en modo edición -->
+            <input type="hidden" id="idConduce" name="idConduce" value="" />
+            <input type="hidden" id="idCliente" name="idCliente" value="" />
 
             <section id="seccionDatosConduce">
 
@@ -342,6 +349,7 @@
 
     <script src="js/funciones.js"></script>
     <script src="js/validacion.js"></script>
+    <script src="js/edicion.js"></script>
 
 </body>
 

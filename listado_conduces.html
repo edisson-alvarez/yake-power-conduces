@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listado de Conduces | Yake Power Systems</title>
+    <link rel="stylesheet" href="css/estilos.css" />
+</head>
+
+<body>
+
+    <header>
+        <h1>Yake Power Systems</h1>
+        <p>Sistema Web para la Gestión y Generación de Conduces</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">Inicio</a>
+            </li>
+            <li>
+                <a href="proyecto.html">Sobre el proyecto</a>
+            </li>
+            <li>
+                <a href="conduce.html">Crear conduce</a>
+            </li>
+            <li>
+                <a href="listado_conduces.html">Listado de conduces</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <section>
+            <h2>Conduces registrados</h2>
+            <p>
+                Consulte los conduces guardados en el sistema. Puede editar
+                cualquier registro para modificar sus datos.
+            </p>
+        </section>
+
+        <section id="seccionListado">
+
+            <div
+                id="mensajeListado"
+                class="mensaje"
+                aria-live="polite">
+            </div>
+
+            <table id="tablaConduces">
+
+                <thead>
+                    <tr>
+                        <th scope="col">Número de conduce</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">RNC / Cédula</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody id="cuerpoConduces">
+                    <!-- Las filas se cargan dinámicamente desde js/listado.js -->
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            Proyecto académico - Desarrollo de Aplicaciones Web ISW-306
+        </p>
+
+        <p>
+            Yake Power Systems - Sistema Web para la Gestión y Generación de Conduces
+        </p>
+
+        <p>
+            Contáctanos: 809-770-2200 | 809-544-4407 | 829-839-3333
+        </p>
+
+        <p>
+            Dirección: Edif. Berlanga, Av. Jacobo Majluta No. 9,
+            Arroyo Hondo, Distrito Nacional.
+        </p>
+
+        <p>
+            &copy; 2026 Yake Power Systems. Todos los derechos reservados.
+        </p>
+    </footer>
+
+    <script src="js/listado.js"></script>
+
+</body>
+
+</html>

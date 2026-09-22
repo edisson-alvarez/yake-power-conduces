@@ -37,6 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
         btnGuardar.addEventListener("click", (e) => {
             e.preventDefault();
 
+            // NUEVO: en modo edición (conduce.html?id=...), la carga y el
+            // envío de datos los maneja js/edicion.js. Esta validación de
+            // "creación" no debe ejecutarse en ese caso.
+            if (window.modoEdicion) {
+                return;
+            }
+
             let esValido = true;
 
             document.querySelectorAll(".error-mensaje").forEach((span) => {
