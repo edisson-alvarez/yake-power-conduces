@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Conduces | Yake Power Systems</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Yake Power Systems</h1>
+        <p>Sistema Web para la Gestión y Generación de Conduces</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="conduce.html">Crear conduce</a></li>
+            <li><a href="listado.html">Ver conduces</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Listado de Conduces Generados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Número</th>
+                        <th>Fecha</th>
+                        <th>Cliente</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpoListado">
+                    <!-- Los conduces se cargarán aquí dinámicamente -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="js/listado.js"></script>
+</body>
+</html>
