@@ -203,14 +203,21 @@
             <div id="error-alert" class="error-message"></div>
             <div id="success-alert" class="success-message"></div>
 
-            <form id="login-form">
+            <!-- Bloque PHP que lee la URL y muestra el error si las credenciales fallan -->
+            <?php if (isset($_GET['error'])): ?>
+                <div id="error-alert" class="error-message">
+                    <?php echo htmlspecialchars($_GET['error']); ?>
+                </div>
+            <?php endif; ?>
+
+             <form id="login-form" action="procesar_login.php" method="POST">
                 <div class="form-group">
                     <label for="identifier">Usuario o Correo Electrónico:</label>
-                    <input type="text" id="identifier" placeholder="ejemplo@yake.com o admin" required>
+                    <input type="text" id="identifier" name="identificador" placeholder="ejemplo@yake.com o admin" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Contraseña:</label>
-                    <input type="password" id="password" placeholder="••••••••" required>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
                 </div>
                 <button type="submit" class="btn-submit">Ingresar al Sistema</button>
             </form>
