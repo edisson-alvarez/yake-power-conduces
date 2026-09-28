@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿<?php
+require_once 'config/proteger_sesion.php';
+?>
+<!DOCTYPE html>
 <html lang="es">
 
 	<head>
@@ -21,19 +24,25 @@
 		<header>
 			<h1>Yake Power Systems</h1>
 			<p>Sistema Web para la Gestión y Generación de Conduces</p>
+			<p>Usuario conectado:
+            <?php echo htmlspecialchars($_SESSION['nombre']); ?>
+            </p>
 		</header>
 
 		<nav>
 			<ul>
 				<li>
-					<a href="index.html">Inicio</a>
+					<a href="index.php">Inicio</a>
 				</li>
 				<li>
 					<a href="proyecto.html">Sobre el proyecto</a>
 				</li>
 				<li>
-					<a href="conduce.html">Crear conduce</a>
+					<a href="conduce.php">Crear conduce</a>
 				</li>
+			    <li>
+                    <a href="logout.php">Cerrar sesión</a>
+                </li>
 			</ul>
 		</nav>
 

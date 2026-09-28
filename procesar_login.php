@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['usuario'] = $usuarioBD['usuario'];
 
                 // Redirigir al archivo principal index.html que está en tu raíz
-                header("Location: index.html"); 
+                header("Location: index.php"); 
                 exit;
             }
         }

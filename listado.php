@@ -1,3 +1,6 @@
+<?php
+require_once 'config/proteger_sesion.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,7 +17,7 @@
     <nav>
         <ul>
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="conduce.html">Crear conduce</a></li>
+            <li><a href="conduce.php">Crear conduce</a></li>
             <li><a href="listado.html">Ver conduces</a></li>
         </ul>
     </nav>

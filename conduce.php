@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿<?php
+require_once 'config/proteger_sesion.php';
+?>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>

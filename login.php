@@ -228,6 +228,5 @@
         <p>Proyecto académico - Desarrollo de Aplicaciones Web ISW-306</p>
     </footer>
 
-    <script src="js/login.js"></script>
 </body>
 </html>

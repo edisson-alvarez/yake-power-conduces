@@ -28,8 +28,13 @@ Documentar las correcciones e integraciones realizadas durante la revisión fina
 - Ajustar redirección hacia páginas protegidas.
 
 **Estado final:**
-Pendiente de integración y pruebas.
+Completado, integrado y verificado.
 
+**Resultado de la prueba:**
+- Inicio de sesión correcto con el usuario de prueba.
+- Redirección exitosa a `index.php`.
+- Usuario autenticado mostrado en la página principal.
+- Acceso a páginas privadas controlado mediante sesión.
 ---
 
 ### 1.2 Sesiones y cierre de sesión
@@ -46,7 +51,14 @@ No se encontró evidencia suficiente en GitHub de rama, commits o Pull Request c
 - Impedir acceso a páginas privadas después de cerrar sesión.
 
 **Estado final:**
-Pendiente de implementación.
+Completado y verificado.
+
+**Correcciones aplicadas:**
+- Se implementó protección de páginas privadas mediante `proteger_sesion.php`.
+- Se agregó control de caché para impedir el acceso a páginas protegidas después del cierre de sesión.
+- Se creó `logout.php` para destruir la sesión de forma segura.
+- Se verificó el flujo login → página privada → cierre de sesión → retorno al login.
+- Se mostró el nombre del usuario autenticado en la página principal.
 
 ---
 
