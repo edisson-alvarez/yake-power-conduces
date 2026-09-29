@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿<?php
+require_once 'config/proteger_sesion.php';
+?>
+<!DOCTYPE html>
 <html lang="es">
 
 	<head>
@@ -21,19 +24,25 @@
 		<header>
 			<h1>Yake Power Systems</h1>
 			<p>Sistema Web para la Gestión y Generación de Conduces</p>
+			<p>Usuario conectado:
+            <?php echo htmlspecialchars($_SESSION['nombre']); ?>
+            </p>
 		</header>
 
 		<nav>
 			<ul>
 				<li>
-					<a href="index.html">Inicio</a>
+					<a href="index.php">Inicio</a>
 				</li>
 				<li>
 					<a href="proyecto.html">Sobre el proyecto</a>
 				</li>
 				<li>
-					<a href="conduce.html">Crear conduce</a>
+					<a href="conduce.php">Crear conduce</a>
 				</li>
+			    <li>
+                    <a href="logout.php">Cerrar sesión</a>
+                </li>
 			</ul>
 		</nav>
 
@@ -84,7 +93,7 @@
 					mediante el siguiente enlace.
 				</p>
 
-				<a href="conduce.html" style="font-weight: bold;">
+				<a href="conduce.php" style="font-weight: bold;">
 					Ir al formulario de conduce
 				</a>
 			</section>
@@ -94,7 +103,8 @@
 				<p>
 					Para comenzar, debe iniciar sesión en el sistema para poder gestionar los conduces.
 				</p>
-				<a href="login.html" style="font-weight: bold;">
+			
+				<a href="login.php" style="font-weight: bold;">
 					Ir al inicio de sesión
 				</a>
 			</section>

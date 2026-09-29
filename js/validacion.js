@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function mostrarError(idElemento, mensaje) {
         const elemento = document.getElementById(idElemento);
-
         if (elemento) {
             elemento.textContent = mensaje;
         }
@@ -15,10 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function actualizarCantidadTotal() {
         const filas = document.querySelectorAll(".filaProducto");
-
         const productos = Array.from(filas).map((fila) => {
             const cantidad = fila.querySelector(".input-cantidad");
-
             return {
                 cantidad: cantidad ? cantidad.value : 0
             };
@@ -28,13 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const elementoTotal = document.getElementById("totalProductos");
 
         if (elementoTotal) {
-            elementoTotal.textContent =
-                `Cantidad total de productos: ${total}`;
+            elementoTotal.textContent = `Cantidad total de productos: ${total}`;
         }
     }
 
     if (btnGuardar) {
-        btnGuardar.addEventListener("click", (e) => {
+        btnGuardar.addEventListener("click", async (e) => {
             e.preventDefault();
 
             let esValido = true;
@@ -48,131 +44,145 @@ document.addEventListener("DOMContentLoaded", () => {
                 mensajeGlobal.textContent = "";
             }
 
-            const numeroConduce =
-                document.getElementById("numeroConduce").value.trim();
-
+            const numeroConduce = document.getElementById("numeroConduce").value.trim();
             if (numeroConduce === "") {
-                mostrarError(
-                    "error-NumeroConduce",
-                    "El número de conduce es obligatorio."
-                );
+                mostrarError("error-NumeroConduce", "El número de conduce es obligatorio.");
                 esValido = false;
             }
 
-            const fecha =
-                document.getElementById("fecha").value;
-
+            const fecha = document.getElementById("fecha").value;
             if (fecha === "") {
-                mostrarError(
-                    "error-Fecha",
-                    "Debe seleccionar una fecha."
-                );
+                mostrarError("error-Fecha", "Debe seleccionar una fecha.");
                 esValido = false;
             }
 
-            const cliente =
-                document.getElementById("cliente").value.trim();
-
+            const cliente = document.getElementById("cliente").value.trim();
             if (cliente === "") {
-                mostrarError(
-                    "error-Cliente",
-                    "El nombre del cliente es obligatorio."
-                );
+                mostrarError("error-Cliente", "El nombre del cliente es obligatorio.");
                 esValido = false;
             }
 
-            const rnccedula =
-                document.getElementById("rnccedula").value.trim();
-
+            const rnccedula = document.getElementById("rnccedula").value.trim();
             if (rnccedula === "") {
-                mostrarError(
-                    "error-Rnccedula",
-                    "El RNC o Cédula es obligatorio."
-                );
+                mostrarError("error-Rnccedula", "El RNC o Cédula es obligatorio.");
                 esValido = false;
             } else if (!validarRncCedula(rnccedula)) {
-                mostrarError(
-                    "error-Rnccedula",
-                    "El RNC debe tener 9 dígitos o la cédula 11 dígitos."
-                );
+                mostrarError("error-Rnccedula", "El RNC debe tener 9 dígitos o la cédula 11 dígitos.");
                 esValido = false;
             }
 
-            const direccion =
-                document.getElementById("direccion").value.trim();
-
+            const direccion = document.getElementById("direccion").value.trim();
             if (direccion === "") {
-                mostrarError(
-                    "error-Direccion",
-                    "La dirección es obligatoria."
-                );
+                mostrarError("error-Direccion", "La dirección es obligatoria.");
                 esValido = false;
             }
 
-            const telefono =
-                document.getElementById("telefono").value.trim();
-
+            const telefono = document.getElementById("telefono").value.trim();
             if (telefono === "") {
-                mostrarError(
-                    "error-Telefono",
-                    "El teléfono es obligatorio."
-                );
+                mostrarError("error-Telefono", "El teléfono es obligatorio.");
                 esValido = false;
             } else if (!validarTelefono(telefono)) {
-                mostrarError(
-                    "error-Telefono",
-                    "Ingrese un teléfono válido de al menos 10 dígitos."
-                );
+                mostrarError("error-Telefono", "Ingrese un teléfono válido de al menos 10 dígitos.");
                 esValido = false;
             }
 
-            const filasProductos =
-                document.querySelectorAll(".filaProducto");
-
+            const filasProductos = document.querySelectorAll(".filaProducto");
             let productosValidos = true;
 
             if (filasProductos.length === 0) {
-                mostrarError(
-                    "error-Productos",
-                    "Debe agregar al menos un producto al conduce."
-                );
+                mostrarError("error-Productos", "Debe agregar al menos un producto al conduce.");
                 esValido = false;
             } else {
                 filasProductos.forEach((fila) => {
-                    const descripcion =
-                        fila.querySelector(".input-descripcion").value.trim();
+                    const descripcion = fila.querySelector(".input-descripcion").value.trim();
+                    const cantidad = parseFloat(fila.querySelector(".input-cantidad").value);
 
-                    const cantidad =
-                        parseFloat(
-                            fila.querySelector(".input-cantidad").value
-                        );
-
-                    if (
-                        descripcion === "" ||
-                        isNaN(cantidad) ||
-                        cantidad <= 0
-                    ) {
+                    if (descripcion === "" || isNaN(cantidad) || cantidad <= 0) {
                         productosValidos = false;
                     }
                 });
 
                 if (!productosValidos) {
-                    mostrarError(
-                        "error-Productos",
-                        "Todos los productos deben tener una descripción y una cantidad numérica mayor a 0."
-                    );
+                    mostrarError("error-Productos", "Todos los productos deben tener una descripción y una cantidad numérica mayor a 0.");
                     esValido = false;
                 }
             }
 
-            if (mensajeGlobal) {
-                if (esValido) {
-                    mensajeGlobal.textContent =
-                        "¡Conduce preparado correctamente!";
-                    mensajeGlobal.style.color = "#3c763d";
-                } else {
-                    mensajeGlobal.textContent =
-                        "Por favor, corrija los errores marcados en el formulario.";
+            if (esValido) {
+                
+                if (mensajeGlobal) {
+                    mensajeGlobal.textContent = "Procesando datos, por favor espere...";
+                    mensajeGlobal.style.color = "#337ab7";
+                }
+
+                try {
+                    // Preparar los datos para el envío
+                    const formData = new FormData();
+                    formData.append('numero_conduce', numeroConduce);
+                    formData.append('fecha', fecha);
+                    formData.append('cliente_nombre', cliente);
+                    formData.append('rnc_cedula', rnccedula);
+                    formData.append('direccion', direccion);
+                    formData.append('atencion', document.getElementById("atencion").value.trim());
+                    formData.append('telefono', telefono);
+                    formData.append('observaciones', document.getElementById("observaciones").value.trim());
+
+                    
+                    filasProductos.forEach((fila) => {
+                        const codigo = fila.querySelector(".input-codigo").value.trim();
+                        const serial = fila.querySelector(".input-serial").value.trim();
+                        const descripcion = fila.querySelector(".input-descripcion").value.trim();
+                        const cantidad = fila.querySelector(".input-cantidad").value;
+
+                        
+                        if (descripcion !== "" && cantidad > 0) {
+                            formData.append('codigo[]', codigo);
+                            formData.append('serial[]', serial);
+                            formData.append('descripcion[]', descripcion);
+                            formData.append('cantidad[]', cantidad);
+                        }
+                    });
+
+                    
+                    const response = await fetch('backend/procesar_conduce.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const data = await response.json();
+
+                    if (data.status === 'success') {
+                        if (mensajeGlobal) {
+                            mensajeGlobal.textContent = data.message;
+                            mensajeGlobal.style.color = "#3c763d";
+                        }
+                        
+                        
+                        setTimeout(() => {
+                           
+                           const btnLimpiar = document.getElementById("btnLimpiar");
+                           if (btnLimpiar) btnLimpiar.click();
+                        }, 2000); 
+
+                    } else {
+                        
+                        if (mensajeGlobal) {
+                            mensajeGlobal.textContent = data.message;
+                            mensajeGlobal.style.color = "#d9534f";
+                        }
+                    }
+
+                } catch (error) {
+                    console.error("Error al enviar el conduce al servidor:", error);
+                    if (mensajeGlobal) {
+                        mensajeGlobal.textContent = "Error de conexión con el servidor. Intente más tarde.";
+                        mensajeGlobal.style.color = "#d9534f";
+                    }
+                }
+                
+            } else {
+                if (mensajeGlobal) {
+                    mensajeGlobal.textContent = "Por favor, corrija los errores marcados en el formulario.";
                     mensajeGlobal.style.color = "#d9534f";
                 }
             }
@@ -180,29 +190,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const productosDisponibles = [
-        {
-            codigo: "UPS-001",
-            descripcion: "UPS interactivo"
-        },
-        {
-            codigo: "BAT-002",
-            descripcion: "Banco de baterías"
-        },
-        {
-            codigo: "INV-003",
-            descripcion: "Inversor de energía"
-        },
-        {
-            codigo: "GEN-004",
-            descripcion: "Generador eléctrico"
-        }
+        { codigo: "UPS-001", descripcion: "UPS interactivo" },
+        { codigo: "BAT-002", descripcion: "Banco de baterías" },
+        { codigo: "INV-003", descripcion: "Inversor de energía" },
+        { codigo: "GEN-004", descripcion: "Generador eléctrico" }
     ];
 
-    const buscadorProductos =
-        document.getElementById("buscadorProductos");
-
-    const resultadoBusqueda =
-        document.getElementById("resultadoBusqueda");
+    const buscadorProductos = document.getElementById("buscadorProductos");
+    const resultadoBusqueda = document.getElementById("resultadoBusqueda");
 
     if (buscadorProductos && resultadoBusqueda) {
         buscadorProductos.addEventListener("input", () => {
@@ -213,18 +208,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            const resultados =
-                filtrarProductos(productosDisponibles, termino);
+            const resultados = filtrarProductos(productosDisponibles, termino);
 
             if (resultados.length === 0) {
-                resultadoBusqueda.textContent =
-                    "No se encontraron productos.";
+                resultadoBusqueda.textContent = "No se encontraron productos.";
             } else {
                 resultadoBusqueda.textContent = resultados
-                    .map(
-                        (producto) =>
-                            `${producto.codigo} - ${producto.descripcion}`
-                    )
+                    .map((producto) => `${producto.codigo} - ${producto.descripcion}`)
                     .join(" | ");
             }
         });
@@ -238,39 +228,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (btnAgregarProducto && cuerpoProductos) {
         btnAgregarProducto.addEventListener("click", () => {
-            const primeraFila =
-                cuerpoProductos.querySelector(".filaProducto");
+            const primeraFila = cuerpoProductos.querySelector(".filaProducto");
 
             if (!primeraFila) {
                 return;
             }
 
-            const nuevaFila =
-                primeraFila.cloneNode(true);
+            const nuevaFila = primeraFila.cloneNode(true);
 
-            nuevaFila
-                .querySelectorAll("input")
-                .forEach((input) => {
-                    input.value = "";
-                });
+            nuevaFila.querySelectorAll("input").forEach((input) => {
+                input.value = "";
+            });
 
             cuerpoProductos.appendChild(nuevaFila);
-
             actualizarCantidadTotal();
         });
 
         cuerpoProductos.addEventListener("click", (e) => {
-            if (
-                e.target.classList.contains("btn-eliminar-fila")
-            ) {
-                const filas =
-                    cuerpoProductos.querySelectorAll(".filaProducto");
-
+            if (e.target.classList.contains("btn-eliminar-fila")) {
+                const filas = cuerpoProductos.querySelectorAll(".filaProducto");
                 if (filas.length > 1) {
-                    e.target
-                        .closest(".filaProducto")
-                        .remove();
-
+                    e.target.closest(".filaProducto").remove();
                     actualizarCantidadTotal();
                 }
             }
@@ -282,43 +260,33 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        document
-            .querySelectorAll(
-                "#formConduce input, #seccionProductos input, #seccionObservaciones textarea"
-            )
-            .forEach((campo) => {
-                campo.value = "";
-            });
+        document.querySelectorAll(
+            "#formConduce input, #seccionProductos input, #seccionObservaciones textarea"
+        ).forEach((campo) => {
+            campo.value = "";
+        });
 
-        document
-            .querySelectorAll(".error-mensaje")
-            .forEach((span) => {
-                span.textContent = "";
-            });
+        document.querySelectorAll(".error-mensaje").forEach((span) => {
+            span.textContent = "";
+        });
 
         if (mensajeGlobal) {
             mensajeGlobal.textContent = "";
         }
 
         if (cuerpoProductos) {
-            const filas =
-                cuerpoProductos.querySelectorAll(".filaProducto");
-
+            const filas = cuerpoProductos.querySelectorAll(".filaProducto");
             filas.forEach((fila, index) => {
                 if (index > 0) {
                     fila.remove();
                 }
             });
 
-            const primeraFila =
-                cuerpoProductos.querySelector(".filaProducto");
-
+            const primeraFila = cuerpoProductos.querySelector(".filaProducto");
             if (primeraFila) {
-                primeraFila
-                    .querySelectorAll("input")
-                    .forEach((input) => {
-                        input.value = "";
-                    });
+                primeraFila.querySelectorAll("input").forEach((input) => {
+                    input.value = "";
+                });
             }
         }
 
