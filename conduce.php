@@ -21,13 +21,13 @@ require_once 'config/proteger_sesion.php';
     <nav>
         <ul>
             <li>
-                <a href="index.html">Inicio</a>
+                <a href="index.php">Inicio</a>
             </li>
             <li>
                 <a href="proyecto.html">Sobre el proyecto</a>
             </li>
             <li>
-                <a href="conduce.html">Crear conduce</a>
+                <a href="conduce.php">Crear conduce</a>
             </li>
         </ul>
     </nav>
@@ -43,10 +43,12 @@ require_once 'config/proteger_sesion.php';
         </section>
 
         <form id="formConduce" novalidate>
+              <input type="hidden" id="idConduce" name="idConduce">
+              <input type="hidden" id="idCliente" name="idCliente">
+            
+              <section id="seccionDatosConduce">
 
-            <section id="seccionDatosConduce">
-
-                <h2>Datos del conduce</h2>
+                <h2 id="tituloConduce">Datos del conduce</h2>
 
                 <p>
                     <label for="numeroConduce">Número de conduce:</label>
@@ -345,6 +347,7 @@ require_once 'config/proteger_sesion.php';
 
     <script src="js/funciones.js"></script>
     <script src="js/validacion.js"></script>
+    <script src="js/edicion.js"></script>
 
 </body>
 

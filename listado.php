@@ -16,7 +16,7 @@ require_once 'config/proteger_sesion.php';
 
     <nav>
         <ul>
-            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.php">Inicio</a></li>
             <li><a href="conduce.php">Crear conduce</a></li>
             <li><a href="listado.html">Ver conduces</a></li>
         </ul>

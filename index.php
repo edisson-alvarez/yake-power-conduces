@@ -93,7 +93,7 @@ require_once 'config/proteger_sesion.php';
 					mediante el siguiente enlace.
 				</p>
 
-				<a href="conduce.html" style="font-weight: bold;">
+				<a href="conduce.php" style="font-weight: bold;">
 					Ir al formulario de conduce
 				</a>
 			</section>

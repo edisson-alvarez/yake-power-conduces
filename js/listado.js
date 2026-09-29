@@ -21,10 +21,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td>${conduce.fecha}</td>
                     <td>${conduce.cliente}</td>
                     <td>
-                        <button type="button" class="btn-eliminar-conduce" data-id="${conduce.id_conduce}" style="background-color: #d9534f; color: white; border: none; padding: 5px 10px; cursor: pointer;">
-                            Eliminar
-                        </button>
-                    </td>
+    <a href="conduce.php?id=${conduce.id_conduce}"
+       style="display:inline-block; padding:5px 10px; background:#337ab7; color:white; text-decoration:none; margin-right:5px;">
+        Editar
+    </a>
+
+    <button type="button" class="btn-eliminar-conduce"
+            data-id="${conduce.id_conduce}"
+            style="background-color:#d9534f; color:white; border:none; padding:5px 10px; cursor:pointer;">
+        Eliminar
+    </button>
+</td>
                 `;
                 cuerpoListado.appendChild(fila);
             });
