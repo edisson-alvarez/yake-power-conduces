@@ -78,8 +78,13 @@ Existían implementaciones paralelas del listado y conflictos entre ramas.
 - Probar Crear, Leer, Actualizar y Eliminar.
 
 **Estado final:**
-Pendiente de integración de edición.
+Completado, integrado y verificado.
 
+**Resultado de la prueba:**
+- Crear conduce: verificado.
+- Listar conduces: verificado.
+- Editar y actualizar conduce: verificado.
+- Eliminar conduce con confirmación: verificado.
 ---
 
 ### 1.4 Script SQL
@@ -102,7 +107,12 @@ y verificar:
 `USE yake_power_conduces;`
 
 **Estado final:**
-Pendiente de corrección y prueba.
+Corregido y consolidado.
+
+**Corrección aplicada:**
+- Se agregó `CREATE DATABASE IF NOT EXISTS yake_power_conduces`.
+- Se agregó `USE yake_power_conduces`.
+- Se verificó el nombre correcto de la base de datos.
 
 ---
 
